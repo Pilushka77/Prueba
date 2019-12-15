@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <title>Roomator</title>
+</head>
+
+<body>
+    <div class="app">
+        <div id="deviceready" class="blink">
+            <p class="event listening"></p>
+            <p class="event received"></p>
+        </div>
+        <h1>Roomator</h1>
+        <br>
+        <div class="subtitle">Find your ideal roommate</div>
+        <br>
+        <br>
+        <div class="go_sign">
+                <label class="question">Do you have an account? Sign in <a href="login.html"><b>here!</b></a></label>
+        </div>
+        
+        <form action="index.html" method="post">
+      
+            <h2>Registration</h2>
+            
+            <fieldset>
+              <legend><span class="number">1</span>Your basic info</legend>
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="user_name">
+              
+              <label for="surname">Surname:</label>
+              <input type="text" id="surname" name="user_surname">
+
+              <label for="mail">Email:</label>
+              <input type="email" id="mail" name="user_email">
+
+              <label for="age">Age:</label>
+              <select type="text" id="age" name="user_age">
+                <!-- Option list-->
+                <option value="1">Between 18-28</option>
+                <option value="2" selected>Between 28-38</option> <!-- Option by default -->
+                <option value="3">Between 38-48</option>
+                <option value="3">Between 48-58</option>
+                <option value="3">Between 58-68</option>
+              </select>
+
+              
+              <label for="password">Password:</label>
+              <input type="password" id="password" name="user_password">
+
+              <label for="password">Repit Password:</label>
+              <input type="password" id="password" name="user_password">
+
+              
+              <label>Do you smoke?</label>
+              <input type="radio" id="smoke_yes" value="smoke_yes" name="user_smoke"><label for="smoke_yes" class="light">Yes</label><br>
+              <input type="radio" id="smoke_no" value="smoke_no" name="user_smoke"><label for="smoke_no" class="light">No</label>
+            </fieldset>
+            
+            <fieldset>
+              <legend><span class="number">2</span>Hobbies</legend>
+              
+              <div id="checkboxes">
+                <label>Select one or more:</label>
+                <ul>
+                  <li><input type="checkbox">Animals</li>
+                  <li><input type="checkbox">Crafts</li> 
+                  <li><input type="checkbox">Hiking</li> 
+                  <li><input type="checkbox">Movies</li>
+                  <li><input type="checkbox">Music</li>
+                  <li><input type="checkbox">Sports</li>
+                  <li><input type="checkbox">Tecnology</li>
+                  <li><input type="checkbox">Travel</li>
+                </ul>
+              </div>
+            </fieldset>
+
+            <div><input type="checkbox">By clicking Sign Up you accept the 
+                <div class="tooltip">Terms of Service
+                  <span class="tooltiptext">Your GPS location and your data are going to be store and used to find the better roommate</span>
+                </div>
+            </div>
+            <br>
+            
+
+            <!-- <button type="submit">Sign Up</button> -->
+            <button onclick="saveData()">Sign Up</button>
+             <!-- <button type="submit" onclick="tryingFile()">File!</button> -->
+
+          </form>
+          
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+  <!--  <script src=
+    "https://maps.googleapis.com/maps/api/js?key=AIzaSyApFPNQ2WxbEueUXMJBPHjLenlPnFo68ls&callback=initMap"></script> -->
+</body>
+
+</html>
